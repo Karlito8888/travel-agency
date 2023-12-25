@@ -1,0 +1,220 @@
+@font-face {
+  font-family: "font-1";
+  src: url(../assets/fonts/JosefinSans-VariableFont_wght.ttf);
+}
+
+$font-1: "font-1", sans-serif;
+
+$color-1: #ff7a00;
+$color-2: #d8d8d8;
+$color-3: rgb(242, 242, 242);
+$white: rgb(237, 237, 237);
+
+@mixin verticalCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  letter-spacing: 1px;
+}
+
+body {
+  background: $white;
+  font-family: $font-1;
+  font-size: 16px;
+  text-align: center;
+  // @include verticalCenter;
+}
+
+li {
+  list-style-type: none;
+}
+
+.orange {
+  color: $color-1;
+}
+
+.input-group {
+  width: 100%;
+  height: 100%;  
+  margin: 15px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+ 
+
+  div{
+    input{
+    flex: 1 0 50%;
+    appearance: none;
+      /* Supprimer les styles par défaut du navigateur */
+      outline: none;
+      /* Supprimer la bordure de mise au point par défaut */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  }
+}
+#cityInput{
+  width: 100%;
+    height: 100%;
+    appearance: none;
+      /* Supprimer les styles par défaut du navigateur */
+      outline: none;
+      /* Supprimer la bordure de mise au point par défaut */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+}
+
+// .select-group {
+//   width: 100%;
+
+  // select {
+  //   width: 100%;
+  //   display: inline-block;
+  //   text-align: left;
+  //   appearance: none;
+  //   /* Supprimer les styles par défaut du navigateur */
+  //   outline: none;
+  //   /* Supprimer la bordure de mise au point par défaut */
+  //   border: 1px solid #ccc;
+  //   border-radius: 5px;
+  //   padding: 8px;
+  //   cursor: pointer;
+  //   transition: background-color 0.3s ease;
+
+  //   &::hover {
+  //     border-color: #3498db;
+  //   }
+
+  //   &::focus {
+  //     border-color: #3498db;
+  //     box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
+  //   }
+
+  //   option {
+  //     padding: 8px;
+  //     font-size: 0.7rem;
+  //     font-style: italic;
+  //     border-radius: 5px;
+
+  //     &::hover {
+  //       background-color: #f0f0f0;
+  //     }
+
+  //     &::checked {
+  //       background-color: #3498db;
+  //       color: #fff;
+  //     }
+  //   }
+  // }
+// }
+
+.select-group select,
+.input-group input,
+.input-group {
+  label {
+    font-size: 0.8rem;
+  }
+}
+
+button.input-group {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button.input-group {
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Style des boutons de soumission */
+button[type="submit"] {
+  background-color: #0073e6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #005bbf;
+  }
+}
+
+input[type="date"] {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  outline: none;
+  box-shadow: 3px 3px 10px #4242429d;
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.fieldsets {
+  display: flex;
+  gap: 5%;
+}
+fieldset {
+  border-radius: 5px;
+  border: 1px solid gray;
+  box-shadow: 3px 3px 10px #4242429d;
+}
+
+legend {
+  font-size: 0.8rem;
+  padding: 0 7px;
+  margin-right: 8px;
+  text-align: right;
+}
+
+.react-datepicker-wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  // box-shadow: 3px 3px 10px #4242429d;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
+  height: 100%;
+}
+[id*=arrive_date],
+[id*=depart_date],
+[id*=return_date],
+[id*=departure_date] {
+  width: 100%;
+  height: 100%;
+  margin: 7px 0 10px 10px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-align: left;
+  font-weight: bold;
+}
