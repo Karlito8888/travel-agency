@@ -12,6 +12,7 @@ function FormTabs() {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
+ 
 
   return (
     <div className="tabs">

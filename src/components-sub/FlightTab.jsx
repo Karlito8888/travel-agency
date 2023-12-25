@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import SelectTripType from "./SelectTripType";
 import ClassSelector from "./ClassSelector";
 import FlightComponent from "./FlightComponent";
@@ -6,9 +6,25 @@ import PassengerSelector from "./PassengerSelector";
 import AddFlightButton from "./AddFlightButton";
 import SubmitButton from "./SubmitButton";
 import Swal from "sweetalert2";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, useController } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { string, z } from "zod";
 
-const FlightTab = () => {
+const FlightTab = ({ onSave }) => {
+  const { handleSubmit, formState } = useForm(
+    // {
+    // resolver: zodResolver(schema),
+    // }
+  );
+
+  const selecteTripTypeRef = useRef();
+
+  const handleSave = (formValues) => {
+    onSave(formValues);
+  };
+
+  const { errors } = formState;
+
   const [tripType, setTripType] = useState("aller-retour");
   const [numFlights, setNumFlights] = useState(2);
   const [selectClass, setSelectClass] = useState("économique");
@@ -118,14 +134,13 @@ const FlightTab = () => {
       <FormProvider {...methods}>
         <form
           id="flight-form"
-          onSubmit={(e) => e.preventDefault()}
-          noValidate
-          // pour gérer la validation du formulaire uniquement par react-hook-form
+          onSubmit={handleSubmit(handleSave)}
           autoComplete="off"
         >
           <SelectTripType
             selectedTripType={tripType}
             setTripType={setTripType}
+            defaultOption={{ value: "aller-retour", label: "Aller - Retour" }}
           />
 
           <ClassSelector
