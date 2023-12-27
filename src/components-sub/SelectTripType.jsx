@@ -1,13 +1,7 @@
 import React, { useEffect } from "react";
-import { useController, useForm } from "react-hook-form";
 import Select from "react-select";
 
-const SelectTripType = ({ selectedTripType, setTripType, defaultOption }) => {
-  const { register, control } = useForm();
-  // const selectRef = useRef();
-
-  const { field } = useController({ name: "tripType", control });
-
+const SelectTripType = ({ setTripType, defaultOption, label }) => {
   const tripTypes = [
     { value: "aller-retour", label: "Aller - Retour" },
     { value: "aller-simple", label: "Aller - Simple" },
@@ -16,7 +10,10 @@ const SelectTripType = ({ selectedTripType, setTripType, defaultOption }) => {
 
   useEffect(() => {
     const storedTripType = localStorage.getItem("selectedTripType");
-    if (!storedTripType || !tripTypes.some((trip) => trip.value === storedTripType)) {
+    if (
+      !storedTripType ||
+      !tripTypes.some((trip) => trip.value === storedTripType)
+    ) {
       localStorage.setItem("selectedTripType", "aller-retour");
       setTripType("aller-retour");
     } else {
@@ -30,15 +27,28 @@ const SelectTripType = ({ selectedTripType, setTripType, defaultOption }) => {
   };
 
   return (
-    <div className="select-group">
+    <div className="select-flight" style={{ position: "relative" }}>
+      <label
+        style={{
+          position: "absolute",
+          top: "-12px",
+          left: "10px",
+          fontSize: "0.8rem",
+          padding: "3px 10px",
+          color: "#777",
+          zIndex: "2",
+          backgroundColor: "#eee",
+          borderRadius: "10px",
+        }}
+      >
+        {label}
+      </label>
       <Select
-        value={tripTypes.find(({ value }) => value === selectedTripType)}
+        defaultValue={defaultOption}
         onChange={handleSelectChange}
-        options={[defaultOption, ...tripTypes.map((trip) => ({
-          value: trip.value,
-          label: trip.label,
-        }))]}
+        options={tripTypes}
       />
+      
     </div>
   );
 };

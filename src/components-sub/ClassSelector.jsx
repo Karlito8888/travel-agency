@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { Select } from "antd";
+import Select from "react-select";
 
-const { Option } = Select;
-
-const ClassSelector = ({ selectedClass, setSelectedClass }) => {
-  const classes = ["économique", "affaires", "première"];
+const ClassSelector = ({ setSelectedClass, defaultOption, label }) => {
+  const classes = [
+    { value: "économique", label: "Classe Economique" },
+    { value: "business", label: "Classe Business" },
+    { value: "première", label: "Classe Première" },
+  ];
 
   function capFL(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -20,29 +22,32 @@ const ClassSelector = ({ selectedClass, setSelectedClass }) => {
     }
   }, [setSelectedClass, classes]);
 
-  const handleClassChange = (value) => {
-    setSelectedClass(value);
-    localStorage.setItem("selectedClass", value);
-  }
+  const handleClassChange = (option) => {
+    setSelectedClass(option.value);
+    localStorage.setItem("selectedClass", option.value);
+  };
   return (
-    <div className="select-group select-class">
-      <label htmlFor="classe"></label>
-      <Select
-        id="classe"
-        value={selectedClass}
-        onChange={handleClassChange}
-        dropdownRender={(menu) => (
-          <div>
-            {menu}
-          </div>
-        )}
+    <div className="select-class" style={{ position: "relative" }}>
+      <label
+        style={{
+          position: "absolute",
+          top: "-12px",
+          left: "10px",
+          fontSize: "0.8rem",
+          padding: "3px 10px",
+          color: "#777",
+          zIndex: "2",
+          backgroundColor: "#eee",
+          borderRadius: "10px",
+        }}
       >
-        {classes.map((classe) => (
-          <Option key={classe} value={classe}>
-            Classe&nbsp;{capFL(classe)}
-          </Option>
-        ))}
-      </Select>
+        {label}
+      </label>
+      <Select
+        defaultValue={defaultOption}
+        options={classes}
+        onChange={handleClassChange}
+      />
     </div>
   );
 };

@@ -17,7 +17,6 @@ const FlightTab = ({ onSave }) => {
     // }
   );
 
-  const selecteTripTypeRef = useRef();
 
   const handleSave = (formValues) => {
     onSave(formValues);
@@ -137,17 +136,24 @@ const FlightTab = ({ onSave }) => {
           onSubmit={handleSubmit(handleSave)}
           autoComplete="off"
         >
-          <SelectTripType
-            selectedTripType={tripType}
-            setTripType={setTripType}
-            defaultOption={{ value: "aller-retour", label: "Aller - Retour" }}
-          />
+          <div className="select-group-one">
+            <SelectTripType
+              selectedTripType={tripType}
+              setTripType={setTripType}
+              defaultOption={{ value: "aller-retour", label: "Aller - Retour" }}
+              label="Choisissez le type de vol"
+            />
 
-          <ClassSelector
-            selectedClass={selectClass}
-            setSelectedClass={setSelectClass}
-          />
-
+            <ClassSelector
+              selectedClass={selectClass}
+              setSelectedClass={setSelectClass}
+              defaultOption={{
+                value: "économique",
+                label: "Classe Economique",
+              }}
+              label="Choisissez votre classe"
+            />
+          </div>
           <div className="flights" id="flight-container">
             {tripType !== "multi-destinations" && (
               <FlightComponent flightNumber={1} tripType={tripType} />

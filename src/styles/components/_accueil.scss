@@ -112,7 +112,7 @@
   }
 
   .trip-formulaire {
-    height: 45vh;
+    height: 75vh;
     // min-height: 360px;
     width: 90%;
     max-width: 700px;
@@ -187,9 +187,9 @@
 
         h3 {
           display: inline-block;
-          font-size: 1rem;
+          font-size: clamp(0, 8rem, 0, 6727rem + 0, 5818vw, 1rem);
           margin-bottom: 10px;
-          padding: 10px;
+          padding: 7px 10px;
           border-radius: 50px;
           background-color: #e7e7e7a9;
         }
@@ -197,7 +197,7 @@
 
       #vol {
         #flight-form {
-          .select-group {
+          .select-group-one {
             margin-bottom: 10px;
 
             .ant-select{
