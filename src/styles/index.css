@@ -80,12 +80,6 @@ li {
   transition: background-color 0.3s ease;
 }
 
-.select-group select label,
-.input-group input label,
-.input-group label {
-  font-size: 0.8rem;
-}
-
 button.input-group {
   width: 100%;
   padding: 10px;
@@ -328,8 +322,10 @@ legend {
   color: #ff7a00;
 }
 .accueil .trip-formulaire {
-  height: 45vh;
-  width: 90%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: 75%;
   max-width: 700px;
   min-width: 350px;
   -ms-flex-item-align: center;
@@ -345,7 +341,7 @@ legend {
 .accueil .trip-formulaire .tabs .tab-buttons {
   position: absolute;
   height: 100%;
-  right: -75px;
+  right: -70px;
   bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -359,21 +355,6 @@ legend {
           justify-content: space-between;
 }
 .accueil .trip-formulaire .tabs .tab-buttons .tab-icon {
-  font-size: 1.2rem;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f1ee), to(#fff));
-  background-image: linear-gradient(to bottom, #f4f1ee, #fff);
-  background-color: rgba(197, 197, 197, 0.431372549);
-  color: rgba(136, 136, 136, 0.726);
-  border-radius: 50%;
-  -webkit-box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 3px 1px 1px rgba(236, 236, 236, 0.783), inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
-          box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 3px 1px 1px rgba(236, 236, 236, 0.783), inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
-  float: left;
-  height: 70px;
-  position: relative;
-  width: 70px;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -383,6 +364,21 @@ legend {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 1rem;
+  width: 60px;
+  height: 60px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f1ee), to(#fff));
+  background-image: linear-gradient(to bottom, #f4f1ee, #fff);
+  background-color: rgba(197, 197, 197, 0.431372549);
+  color: rgba(136, 136, 136, 0.726);
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 3px 1px 1px rgba(236, 236, 236, 0.783), inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
+          box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 3px 1px 1px rgba(236, 236, 236, 0.783), inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
+  float: left;
+  position: relative;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  cursor: pointer;
 }
 .accueil .trip-formulaire .tabs .tab-buttons .tab-icon.active {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#efedec), to(#f7f4f4));
@@ -390,7 +386,7 @@ legend {
   -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.4), inset 0px 3px 1px 1px rgb(252, 252, 252);
           box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.4), inset 0px 3px 1px 1px rgb(252, 252, 252);
   background-color: rgba(231, 231, 231, 0.7058823529);
-  color: #3b3b3b;
+  color: #575757;
 }
 .accueil .trip-formulaire .tabs .tab-buttons .tab-icon:hover {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f4f1ee));
@@ -419,16 +415,26 @@ legend {
 .accueil .trip-formulaire .tabs #volsejour h3,
 .accueil .trip-formulaire .tabs #voiture h3 {
   display: inline-block;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  padding: 10px;
+  font-size: clamp(0.7rem, 4vw, 1.1rem);
+  margin-bottom: 20px;
+  padding: 7px 10px;
   border-radius: 50px;
+  color: #575757;
   background-color: rgba(231, 231, 231, 0.662745098);
 }
-.accueil .trip-formulaire .tabs #vol #flight-form .select-group {
+.accueil .trip-formulaire .tabs #vol #flight-form .select-group-one {
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10%;
 }
-.accueil .trip-formulaire .tabs #vol #flight-form .select-group .ant-select {
+.accueil .trip-formulaire .tabs #vol #flight-form .select-group-one .ant-select {
   font-size: 14px;
   height: 32px;
   min-width: 150px;

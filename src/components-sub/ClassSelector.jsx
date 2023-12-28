@@ -8,13 +8,15 @@ const ClassSelector = ({ setSelectedClass, defaultOption, label }) => {
     { value: "première", label: "Classe Première" },
   ];
 
-  function capFL(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  // function capFL(string) {
+  //   return string.charAt(0).toUpperCase() + string.slice(1);
+  // }
 
   useEffect(() => {
     const storedClass = localStorage.getItem("selectedClass");
-    if (!storedClass || !classes.includes(storedClass)) {
+    const classValues = classes.map((classObj) => classObj.value);
+
+    if (!storedClass || !classValues.includes(storedClass)) {
       localStorage.setItem("selectedClass", "économique");
       setSelectedClass("économique");
     } else {
@@ -26,24 +28,26 @@ const ClassSelector = ({ setSelectedClass, defaultOption, label }) => {
     setSelectedClass(option.value);
     localStorage.setItem("selectedClass", option.value);
   };
+
+  const customStyles = {
+    control: (provided, state) => ({
+      // provided conserve les styles de bases tout en ajoutant ou modifiant ceux qu'on souhaite personnaliser.
+      // state permet de conditionner les styles en fonction de l'état de l'élément... state.isFocused, etc...
+      ...provided,
+      fontSize: "0.8rem",
+      minWidth: "192px",
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      fontSize: "0.8rem",
+      textAlign: "left",
+    }),
+  };
+
   return (
-    <div className="select-class" style={{ position: "relative" }}>
-      <label
-        style={{
-          position: "absolute",
-          top: "-12px",
-          left: "10px",
-          fontSize: "0.8rem",
-          padding: "3px 10px",
-          color: "#777",
-          zIndex: "2",
-          backgroundColor: "#eee",
-          borderRadius: "10px",
-        }}
-      >
-        {label}
-      </label>
+    <div className="select-class">
       <Select
+        styles={customStyles}
         defaultValue={defaultOption}
         options={classes}
         onChange={handleClassChange}

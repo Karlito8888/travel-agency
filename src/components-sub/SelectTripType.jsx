@@ -26,29 +26,30 @@ const SelectTripType = ({ setTripType, defaultOption, label }) => {
     localStorage.setItem("selectedTripType", option.value);
   };
 
+  const customStyles = {
+    control: (provided, state) => ({
+      // provided conserve les styles de bases tout en ajoutant ou modifiant ceux qu'on souhaite personnaliser.
+      // state permet de conditionner les styles en fonction de l'état de l'élément... state.isFocused, etc...
+      ...provided,
+      fontSize: "0.8rem",
+      minWidth: "192px",
+      marginBottom: "7px",
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      fontSize: "0.8rem",
+      textAlign: "left",
+    }),
+  };
+
   return (
-    <div className="select-flight" style={{ position: "relative" }}>
-      <label
-        style={{
-          position: "absolute",
-          top: "-12px",
-          left: "10px",
-          fontSize: "0.8rem",
-          padding: "3px 10px",
-          color: "#777",
-          zIndex: "2",
-          backgroundColor: "#eee",
-          borderRadius: "10px",
-        }}
-      >
-        {label}
-      </label>
+    <div className="select-flight">
       <Select
+        styles={customStyles}
         defaultValue={defaultOption}
         onChange={handleSelectChange}
         options={tripTypes}
       />
-      
     </div>
   );
 };
