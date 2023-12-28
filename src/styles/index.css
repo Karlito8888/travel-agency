@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "font-1";
   src: url(../assets/fonts/JosefinSans-VariableFont_wght.ttf);
@@ -26,84 +25,6 @@ li {
 
 .orange {
   color: #ff7a00;
-}
-
-.input-group {
-  width: 100%;
-  height: 100%;
-  margin: 15px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.input-group div input {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 50%;
-          flex: 1 0 50%;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  /* Supprimer les styles par défaut du navigateur */
-  outline: none;
-  /* Supprimer la bordure de mise au point par défaut */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 8px;
-  cursor: pointer;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
-}
-
-#cityInput {
-  width: 100%;
-  height: 100%;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  /* Supprimer les styles par défaut du navigateur */
-  outline: none;
-  /* Supprimer la bordure de mise au point par défaut */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 8px;
-  cursor: pointer;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
-}
-
-button.input-group {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button.input-group {
-  text-align: left;
-  cursor: pointer;
-}
-
-/* Style des boutons de soumission */
-button[type=submit] {
-  background-color: #0073e6;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-button[type=submit]:hover {
-  background-color: #005bbf;
 }
 
 input[type=date] {
@@ -190,7 +111,7 @@ legend {
           justify-content: space-between;
   letter-spacing: 1px;
 }
-@media (max-width: 1025px) {
+@media screen and (max-width: 1025px) {
   .accueil {
     background-image: url("../assets/media/img/image-1-bis.jpg");
   }
@@ -418,7 +339,7 @@ legend {
   font-size: clamp(0.7rem, 4vw, 1.1rem);
   margin-bottom: 20px;
   padding: 7px 10px;
-  border-radius: 50px;
+  border-radius: 5px;
   color: #575757;
   background-color: rgba(231, 231, 231, 0.662745098);
 }
@@ -434,10 +355,17 @@ legend {
           justify-content: center;
   gap: 10%;
 }
-.accueil .trip-formulaire .tabs #vol #flight-form .select-group-one .ant-select {
-  font-size: 14px;
-  height: 32px;
-  min-width: 150px;
+.accueil .trip-formulaire .tabs #vol #flight-form .flights .input-group {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10%;
 }
 .accueil .trip-formulaire .tabs #vol #flight-form .flights .input-dep-flightdate {
   display: block;

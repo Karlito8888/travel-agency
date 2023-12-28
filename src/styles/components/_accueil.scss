@@ -9,7 +9,7 @@
   justify-content: space-between;
   letter-spacing: 1px;
 
-  @media (max-width: 1025px) {
+  @media screen and (max-width: 1025px) {
     background-image: url("../assets/media/img/image-1-bis.jpg");
   }
 
@@ -112,7 +112,7 @@
   }
 
   .trip-formulaire {
-    height: max-content ;
+    height: max-content;
     // min-height: 360px;
     width: 75%;
     max-width: 700px;
@@ -136,8 +136,8 @@
 
         .tab-icon {
           display: flex;
-            justify-content: center;
-            align-items: center;
+          justify-content: center;
+          align-items: center;
           font-size: 1rem;
           width: 60px;
           height: 60px;
@@ -150,23 +150,22 @@
             inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
           float: left;
           position: relative;
-          
+
           transition: all 0.2s linear;
           cursor: pointer;
-         
 
           &.active {
             background-image: linear-gradient(to bottom, #efedec, #f7f4f4);
             box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.4),
               inset 0px 3px 1px 1px rgb(252, 252, 252);
-              background-color: #e7e7e7b4;
-              color: $color-4;
+            background-color: #e7e7e7b4;
+            color: $color-4;
           }
 
           &:hover {
             background-image: linear-gradient(to bottom, #fff, #f4f1ee);
             box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.4),
-                inset 0px 3px 1px 1px rgba(250, 250, 250, 0.9);
+              inset 0px 3px 1px 1px rgba(250, 250, 250, 0.9);
             color: $color-4;
             transform: scale(1.1);
           }
@@ -191,7 +190,7 @@
           font-size: clamp(0.7rem, 4vw, 1.1rem);
           margin-bottom: 20px;
           padding: 7px 10px;
-          border-radius: 50px;
+          border-radius: 5px;
           color: $color-4;
           background-color: #e7e7e7a9;
         }
@@ -205,62 +204,17 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 10%;
-
-            .ant-select{
-              font-size: 14px;
-              height: 32px;
-              min-width: 150px;
-
-              // .ant-select-selector{
-
-              //   .ant-select-selector-search{
-
-              //   }
-              // }
-            }
-
-            // ul {
-            //   display: flex;
-            //   justify-content: center;
-            //   align-items: center;
-            //   gap: 5%;
-
-            //   li {
-            //     background-color: #e7e7e767;
-            //     border-radius: 5px;
-
-            //     input[type="radio"] {
-            //       display: none;
-
-            //       &:checked + label {
-            //         background-color: #3498db;
-            //         color: #fff;
-            //         border: 1px solid #3498db;
-            //       }
-            //     }
-
-            //     label {
-            //       display: inline-block;
-            //       padding: 8px 16px;
-            //       font-style: italic;
-            //       font-size: 0.7rem;
-            //       font-weight: bold;
-            //       text-transform: uppercase;
-            //       cursor: pointer;
-            //       border: 1px solid #ccc;
-            //       border-radius: 5px;
-            //       transition: background-color 0.3s ease;
-
-            //       &:hover {
-            //         background-color: #f0f0f0;
-            //       }
-            //     }
-            //   }
-            // }
           }
 
           .flights {
-           
+            .input-group {
+              margin-bottom: 10px;
+              display: flex;
+              flex-wrap: nowrap;
+              justify-content: center;
+              gap: 10%;
+            }
+
             .input-dep-flightdate {
               display: block;
             }
@@ -269,39 +223,39 @@
               display: block;
             }
 
-                         .suggestions {
-                           position: absolute;
-                           height: 160px;
-                           width: 340px;
-                           padding: 10px;
-                           top: 60%;
-                           left: 50%;
-                           transform: translateX(-50%);
-                           background-color: rgb(221, 221, 221);
-                           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-                           border-radius: 5px;
-                           z-index: 20;
-            
-                           ul {
-                             height: 100%;
-                             display: flex;
-                             flex-direction: column;
-                             justify-content: space-around;
-            
-                             // gap: 20px;
-                             li {
-                               font-size: 0.8rem;
-                               text-align: left;
-                               cursor: pointer;
-                               padding: 10px;
-            
-                               &:hover {
-                                 background-color: rgb(197, 197, 197);
-                                 border-radius: 10px;
-                               }
-                             }
-                           }
-                         }
+            .suggestions {
+              position: absolute;
+              height: 160px;
+              width: 340px;
+              padding: 10px;
+              top: 60%;
+              left: 50%;
+              transform: translateX(-50%);
+              background-color: rgb(221, 221, 221);
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+              border-radius: 5px;
+              z-index: 20;
+
+              ul {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                // gap: 20px;
+                li {
+                  font-size: 0.8rem;
+                  text-align: left;
+                  cursor: pointer;
+                  padding: 10px;
+
+                  &:hover {
+                    background-color: rgb(197, 197, 197);
+                    border-radius: 10px;
+                  }
+                }
+              }
+            }
           }
 
           .passengers {
@@ -345,6 +299,7 @@
           }
         }
       }
+
       #sejour {
         #sejour-form {
           position: relative;
