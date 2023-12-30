@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import AsyncSelect from "react-select/async";
 
-const AirportsList = ({ flightNumber, inputType, required }) => {
+const AirportsList = ({ flightNumber, inputType, id, required }) => {
   const [allAirports, setAllAirports] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [inputLength, setInputLength] = useState(0);

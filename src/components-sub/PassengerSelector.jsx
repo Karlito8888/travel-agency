@@ -59,10 +59,11 @@ function PassengerSelector() {
         <div id="passenger-selector">
           {Object.entries(counts).map(([type, count]) => (
             <InputNumber
+              id={`passenger-selector-${type}`}
               key={type}
               addonBefore={`${passengerLabels[type]}${count > 1 ? "s" : ""}`}
               size="small"
-              min={0}
+              min={type === "adults" ? 1 : 0}
               max={10}
               defaultValue={type === "adults" ? 1 : 0}
               onChange={(value) => {

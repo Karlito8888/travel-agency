@@ -20,28 +20,9 @@ const FlightComponent = ({ flightNumber, tripType, activeTab }) => {
     setReturnDate(tomorrow);
     setTomorrowMinDate(tomorrow);
 
-     localStorage.setItem(`departureDate${flightNumber}`, today.toISOString());
-      localStorage.setItem(`returnDate${flightNumber}`, tomorrow.toISOString());
-    
+    localStorage.setItem(`departureDate${flightNumber}`, today.toISOString());
+    localStorage.setItem(`returnDate${flightNumber}`, tomorrow.toISOString());
   }, []);
-
-  // useEffect(() => {
-  //   const departureCity = localStorage.getItem(`departureCity${flightNumber}`);
-  //   const departureName = localStorage.getItem(`departureName${flightNumber}`);
-  //   const departureIataCode = localStorage.getItem(
-  //     `departureIataCode${flightNumber}`
-  //   );
-
-  //   const destinationCity = localStorage.getItem(
-  //     `destinationCity${flightNumber}`
-  //   );
-  //   const destinationName = localStorage.getItem(
-  //     `destinationName${flightNumber}`
-  //   );
-  //   const destinationIataCode = localStorage.getItem(
-  //     `destinationIataCode${flightNumber}`
-  //   );
-  // }, [flightNumber])
 
   useEffect(() => {
     const storedDepartureDate = localStorage.getItem(
@@ -93,18 +74,20 @@ const FlightComponent = ({ flightNumber, tripType, activeTab }) => {
 
       <div className="input-group">
         <div className="input-departure-city">
-          <label htmlFor={`departure-city-${flightNumber}`}></label>
+          {/* <label htmlFor={`departure-city-${flightNumber}`}></label> */}
           <AirportsList
             flightNumber={flightNumber}
             inputType="departure"
+            id={`departure-city-${flightNumber}`}
           />
         </div>
 
         <div className="input-destination-city">
-          <label htmlFor={`destination-city-${flightNumber}`}></label>
+          {/* <label htmlFor={`destination-city-${flightNumber}`}></label> */}
           <AirportsList
             flightNumber={flightNumber}
             inputType="destination"
+            id={`destination-city-${flightNumber}`}
           />
         </div>
       </div>
