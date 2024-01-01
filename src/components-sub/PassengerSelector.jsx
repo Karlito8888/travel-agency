@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, InputNumber } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function PassengerSelector() {
   const [isPassengerSelectorVisible, setPassengerSelectorVisible] =
@@ -43,11 +45,12 @@ function PassengerSelector() {
 
   const handleCountChange = (type, value) => {
     setCounts((prevCounts) => ({ ...prevCounts, [type]: value }));
-  }
+  };
 
   return (
     <>
       <Button
+        style={{ position: "relative" }}
         size="large"
         id="toggle-passenger-selector"
         onClick={(e) => togglePassengerSelector(e)}
@@ -57,22 +60,39 @@ function PassengerSelector() {
       </Button>
       {isPassengerSelectorVisible && (
         <div id="passenger-selector">
-          {Object.entries(counts).map(([type, count]) => (
-            <InputNumber
-              id={`passenger-selector-${type}`}
-              key={type}
-              addonBefore={`${passengerLabels[type]}${count > 1 ? "s" : ""}`}
-              size="small"
-              min={type === "adults" ? 1 : 0}
-              max={10}
-              defaultValue={type === "adults" ? 1 : 0}
-              onChange={(value) => {
-                if (value !== null) {
-                  handleCountChange(type, value);
-                }
-              }}
-            />
-          ))}
+          <FontAwesomeIcon
+            style={{
+              position: "absolute",
+              right: "10px",
+              top: "10px",
+              color: "#5b5a5a91",
+              cursor: "pointer",
+              border: "1px solid #5b5a5a91",
+              borderRadius: "50%",
+              padding: "5px",
+            }}
+            icon={faTimes}
+            onClick={(e) => togglePassengerSelector(e)}
+          />
+          <div className="passenger-selector-wrapper">
+            {Object.entries(counts).map(([type, count]) => (
+              <InputNumber
+                id={`passenger-selector-${type}`}
+                key={type}
+                addonBefore={`${passengerLabels[type]}${count > 1 ? "s" : ""}`}
+                size="large"
+                min={type === "adults" ? 1 : 0}
+                max={10}
+                defaultValue={type === "adults" ? 1 : 0}
+                autoFocus={type === "adults" ? true : false}
+                onChange={(value) => {
+                  if (value !== null) {
+                    handleCountChange(type, value);
+                  }
+                }}
+              />
+            ))}
+          </div>
         </div>
       )}
     </>

@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import axios from "axios";
 import AsyncSelect from "react-select/async";
 
-const AirportsList = ({ flightNumber, inputType, id, required }) => {
+const AirportsList = ({ flightNumber, inputType }) => {
   const [allAirports, setAllAirports] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [inputLength, setInputLength] = useState(0);
+  const inputRef = useRef();
 
   useEffect(() => {
     axios
@@ -21,6 +22,14 @@ const AirportsList = ({ flightNumber, inputType, id, required }) => {
       })
       .catch((error) => console.error("Error fetching data", error));
   }, []);
+
+  useEffect(() => {
+    // Set focus only for "departure"
+    if (inputType === "departure") {
+      inputRef.current.focus();
+    }
+  }, [inputType]);
+
 
   const filteredAirports = useMemo(() => {
     return allAirports.filter(
@@ -111,6 +120,7 @@ const AirportsList = ({ flightNumber, inputType, id, required }) => {
         inputType === "departure" ? "départ" : "destination"
       } `}
       onInputChange={handleInputChange}
+      ref={inputRef}
     />
   );
 };

@@ -198,6 +198,7 @@
 
       #vol {
         #flight-form {
+          width: 100%;
           .select-group-one {
             margin-bottom: 10px;
             display: flex;
@@ -264,8 +265,6 @@
             border-radius: 5px;
             width: 192px;
 
-
-
             span {
               font-size: 0.8rem;
               margin: 0 10px;
@@ -287,94 +286,108 @@
           }
 
           #passenger-selector {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 200px;
             display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            margin: 0 auto;
-            // padding: 0 50px;
-            max-width: 192px;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(203, 203, 203);
+            box-shadow: 9px 10px 38px 4px rgba(0, 0, 0, 0.49);
+            border-radius: 5px;
+            background-color: #f4f4f4ec;
+            // margin: 0 auto;
+            // padding: 70px 50px;
+            // max-width: 192px;
+            .passenger-selector-wrapper {
+              width: 70%;
+              height: 70%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+              align-items: stretch;
 
-            .ant-input-number-group-wrapper {
-              margin-bottom: 3px;
-
-              .ant-input-number-wrapper {
-
-                .ant-input-number-group-addon {
-                  padding: 5px 10px;
-                  background-color: #efefef;
-                  text-align: left;
-                  width: 40%;
-                  // max-width: 100px;
-                }
-
-                .ant-input-number {
-                  max-width: 150px;
-
-                  .ant-input-number-handler-wrap {
-                    opacity: 1;
+              .ant-input-number-group-wrapper {
+                .ant-input-number-wrapper {
+                  .ant-input-number-group-addon {
+                    padding: 5px 10px;
+                    background-color: #efefef;
+                    text-align: left;
+                    width: 40%;
+                    // max-width: 100px;
                   }
-                }
 
-                // .ant-input-number-input-wrap {}
+                  .ant-input-number {
+                    max-width: 150px;
+
+                    .ant-input-number-handler-wrap {
+                      opacity: 1;
+                    }
+                  }
+
+                  // .ant-input-number-input-wrap {}
+                }
               }
             }
           }
-        
 
+          #add-flight-button {
+            // display: block;
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
 
-        #add-flight-button {
-          // display: block;
-          background-color: #0073e6;
-          color: #fff;
-          border: none;
-          border-radius: 5px;
-          padding: 10px 20px;
-          margin-top: 10px;
-          cursor: pointer;
-
-          &:hover {
-            background-color: #005bbf;
+            &:hover {
+              background-color: #005bbf;
+            }
           }
         }
       }
-    }
 
-    #sejour {
-      #sejour-form {
-        position: relative;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+      #sejour {
+        #sejour-form {
+          position: relative;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
 
-        .suggestions {
-          position: absolute;
-          height: 160px;
-          width: 340px;
-          padding: 10px;
-          top: 30%;
-          left: 50%;
-          transform: translateX(-50%);
-          background-color: rgb(221, 221, 221);
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-          border-radius: 5px;
-          z-index: 20;
+          .suggestions {
+            position: absolute;
+            height: 160px;
+            width: 340px;
+            padding: 10px;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgb(221, 221, 221);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 20;
 
-          ul {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
+            ul {
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
 
-            // gap: 20px;
-            li {
-              font-size: 1.1rem;
-              cursor: pointer;
-              padding: 10px;
+              // gap: 20px;
+              li {
+                font-size: 1.1rem;
+                cursor: pointer;
+                padding: 10px;
 
-              &:hover {
-                background-color: rgb(197, 197, 197);
-                border-radius: 10px;
+                &:hover {
+                  background-color: rgb(197, 197, 197);
+                  border-radius: 10px;
+                }
               }
             }
           }
@@ -382,13 +395,12 @@
       }
     }
   }
-}
 
-// --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
 
-// /* Style de contenu de l'onglet VOLSEJOUR */
+  // /* Style de contenu de l'onglet VOLSEJOUR */
 
-// #volsejour {
-//   display: block;
-// }
+  // #volsejour {
+  //   display: block;
+  // }
 }

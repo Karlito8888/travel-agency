@@ -11,12 +11,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { string, z } from "zod";
 
 const FlightTab = ({ onSave }) => {
-  const { handleSubmit, formState } = useForm(
+  const { handleSubmit, formState } =
+    useForm();
     // {
     // resolver: zodResolver(schema),
     // }
-  );
-
 
   const handleSave = (formValues) => {
     onSave(formValues);
